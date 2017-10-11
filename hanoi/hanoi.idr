@@ -1,3 +1,4 @@
+-- just right 
 total
 hanoi : Nat -> Integer
 hanoi (S n) = 1 + 2 * hanoi n

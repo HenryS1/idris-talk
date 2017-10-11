@@ -20,6 +20,10 @@ emptyGrid = [[Blank, Blank, Blank],
              [Blank, Blank, Blank],
              [Blank, Blank, Blank]]
 
+-- annotating with total here will cause a type error
+-- this function is not total because of a failing case match
+-- it can also accept out of bounds arguments to set values in
+-- the grid
 setEntry : Nat -> a -> Vect (S m) a -> Vect (S m) a 
 setEntry n e v = recur n v
   where recur : (n : Nat) -> Vect (S i) a -> Vect (S i) a

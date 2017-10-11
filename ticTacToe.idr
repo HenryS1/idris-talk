@@ -20,6 +20,10 @@ emptyGrid = [[Blank, Blank, Blank],
              [Blank, Blank, Blank],
              [Blank, Blank, Blank]]
 
+-- corrected version of set entry that uses implicit proofs to guarantee that
+-- arguments are in bounds
+-- proof is transformed on each recursive call to generate the correct proof 
+-- for that case
 total
 setEntry : (n : Nat) -> { auto p : LT n (S m) } -> a -> Vect (S m) a -> Vect (S m) a 
 setEntry n {p} e v = recur n p v
