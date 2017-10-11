@@ -1,0 +1,99 @@
+#+TITLE:  Dependent types
+#+AUTHOR: Henry Steere
+
+* Dependent types
+
+  A dependent type is a type that is computed from a value
+
+  Below I define a type called myType which can be either an int,
+  a Boolean, or a String depending on the argument which is passed into the function
+
+  #+BEGIN_SRC idris
+    data TypeToggle = MyInt | MyBool | MyString
+
+    myType : TypeToggle -> Type
+    myType MyInt = Int
+    myType MyBool = Bool
+    myType MyString = String
+
+    toggleType : (t : TypeToggle) -> myType t
+    toggleType MyInt = 100
+    toggleType MyBool = False
+    toggleType MyString = "Hello World!"
+
+    cliche : String
+    cliche = toggleType MyString
+          
+  #+END_SRC
+
+* Nats 
+
+  Nats are not dependent types themselves but are often used in idris to parameterise
+  dependent types
+
+  - Nats are a recursively defined ADT that represents the non-negative integers
+
+    #+BEGIN_SRC idris
+      data Nat = Z -- Zero
+        | S Nat -- successor of some Nat
+    #+END_SRC
+
+* Vectors 
+
+  A vector is a built in dependent type that represents a list with a specific length
+  the list length is a parameter in the declaration of the type
+
+  - Vectors are declared as Vect n a where n has type Nat and a has type Type
+
+  - These two vectors have different types
+
+    #+BEGIN_SRC idris
+      v1 : Vect 3 Int 
+      v1 = [1, 2, 3]
+         
+      v2 : Vect 4 Int
+      v2 = [1, 2, 3, 4]
+    #+END_SRC
+
+  - This is the signature for cons operating on vectors
+
+    #+BEGIN_SRC idris
+      (::) : elem -> Vect len elem -> Vect (S len) elem
+    #+END_SRC
+
+    The result type has length one greater than the input type
+
+* Dependent pairs
+
+  Dependent pairs are pairs where the type of the second entry depends on 
+  the value of the first entry
+
+  - Dependent pairs are denoted as (x ** y)
+    
+  - Dependent pairs have a similar functional interface to ordinary pairs with
+    functions fst and snd to access the first and second elements respectively
+
+  - The following is a dependent pair where the first argument is the length of a 
+    vector and the second argument is the vector itself
+
+    #+BEGIN_SRC idris
+      (n ** Vect n a)
+    #+END_SRC
+
+  - Dependent pairs are used in the idris standard library to implement among other
+    things filtering vectors.
+
+    #+BEGIN_SRC idris
+      filter : (elem -> Bool) -> Vect len elem -> (m ** Vect m elem)
+      filter p [] = ( _ ** [] )
+      filter p (x::xs) =
+        let (_ ** tail) = filter p xs
+        in if p x then (_ ** x::tail)
+           else (_ ** tail)
+    #+END_SRC
+
+    The dependent pair is required because it's impossible to know how many elements
+    will remain after filtering the vector. The pair encodes an existential, 
+    the assertion that there is some p for which the filter will produce a vector of
+    that length. On the other hand without the dependent pair the result vector is 
+    a universal quantification with no relation to the input or the operation.

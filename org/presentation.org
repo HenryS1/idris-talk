@@ -1,0 +1,42 @@
+#+TITLE:  Dependent types in Idris
+#+AUTHOR: Henry Steere
+
+
+* Beginning with Idris installation and editing
+
+  First steps: installing Idris, writing and editing code.
+
+  Syntax and style.
+
+* Dependent types
+  
+  Idris supports dependent types. That is, types that are functions from types or even values
+  to types. This enables static checking of value dependent type contraints.
+ 
+* Totality 
+
+  Idris can automatically check that your program is total. 
+  This allows you to be certain that your program will accept any possible 
+  input and always terminate in finite time.
+
+  If your program is total there can be no infinite loops, no failing pattern matches
+  and no undefined behaviour on unexpected inputs.
+
+* Theorem proving 
+
+  Idris deduces properties of your program and its types using theorem proving.
+  Some properties that you want to establish about your program require that you provide 
+  decision procedures, proofs or rewrite rules to hint to Idris how it can derive 
+  the result you want.
+
+* Type verified state machines
+
+  Types can be used to constrain the behaviour of a state machine by 
+  statically ensuring pre-conditions and post-conditions are as expected before an
+  action is executed
+
+* Idris vs Haskell
+
+  Haskell has dependent types, but they are more of an afterthought and are only available 
+  when compiling with GHC extensions enabled. Haskells support for theorem proving and structural
+  recursion is not as good as Idris.

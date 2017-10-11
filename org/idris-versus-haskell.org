@@ -1,0 +1,20 @@
+#+TITLE:  Idris vs Haskell
+#+AUTHOR: Henry Steere
+
+* Haskell has dependent types
+
+  But not Haskell 98. You need to enable a miscellany of GHC extensions to get 
+  dependent typing in Haskell
+
+* Idris has totality checking
+
+  Haskell doesn't support this currently
+
+* Idris has smart optimisations
+
+  Idris converts Nats to Ints at compile time to prevent inefficiency. Haskell
+  doesn't currently have this capability.
+
+  Idris optimises away proof code which is only required at compile time. 
+  Apparently there are plans for something similar in Haskell. I'm not sure whether this
+  is in place yet.

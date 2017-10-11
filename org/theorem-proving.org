@@ -1,0 +1,31 @@
+#+TITLE:  Theorem proving
+#+AUTHOR: Henry Steere
+
+* Theorem proving
+
+  Idris has built in theorem proving which can allow it to verify properties about
+  your programs using dependent types
+
+  - Verify input to functions using types
+
+  - Verify totality of functions
+
+  - Verify behaviours using types
+  
+* Proof arguments
+
+  Sometimes Idris can't figure out the properties you want to establish by itself
+  and requires extra arguments to establish them
+
+  - Proof arguments serve as guarantees that required conditions are met and 
+    can provide assistance to Idris or may be required for a proof to be possible at all
+
+  - Proof arguments can be passed implicitly to avoid clutter
+
+* Rewriting 
+
+  Rewriting uses an equality based proof that shows the equivalence of types to convert an
+  expression of one type into an expression of another type
+
+    
+  

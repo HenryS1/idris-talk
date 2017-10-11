@@ -1,0 +1,80 @@
+#+TITLE:  Beginning Idris
+#+AUTHOR: Henry Steere
+
+* Where does the name came from?
+
+  Idris is named after the Dragon from the British children's television show Ivor the Engine
+
+  https://www.youtube.com/watch?v=qT3tDRt8b3Y
+
+* Installing Idris
+  
+  On mac you can use brew. Otherwise Idris is available as a hackage package to install 
+  with Haskell's dependency manager cabal.
+
+  #+BEGIN_SRC sh
+    cabal update
+    cabal install idris
+  #+END_SRC
+
+  You may need to install it in a sandbox to avoid dependency conflicts with other cabal packages.
+
+* Syntax and style
+
+  Idris is inspired by Haskell and has very similar syntax, style and idioms:
+
+  Can you spot the difference below?
+
+  - Factorial in Haskell
+    
+    #+BEGIN_SRC haskell
+      factorial :: Int -> Integer
+      factorial 0 = 1
+      factorial n = n * factorial (n - 1)
+    #+END_SRC
+
+  - Factorial in Idris
+
+    #+BEGIN_SRC idris
+      factorial : Int -> Integer
+      factorial 0 = 1
+      factorial n = n * factorial (n - 1)  
+    #+END_SRC
+
+  - Other language features/syntax
+
+    |---------------------------------------+--------------------------------------------------------------|
+    | Haskell                               | Idris                                                        |
+    |---------------------------------------+--------------------------------------------------------------|
+    | type classes/instances                | interfaces/implementations                                   |
+    | optional type declaration             | compulsory type declaration                                  |
+    | return (Monad) and pure (Applicative) | pure for Monad and Applicative                               |
+    | lazy by default                       | strict by default but with lazy streams                      |
+    | fmap and map                          | only map                                                     |
+    | double colon for type declarations    | single colon for type decalarations                          |
+    | narrow lambda arrow (->)              | fat lambda arrow (=>)                                        |
+    |---------------------------------------+--------------------------------------------------------------|
+
+* Type holes
+
+  Type holes let you leave out bits of your program and have Idris tell 
+  you what type they should have. This is very useful for incrementally,
+  interactively developing programs.
+
+  - In the example below Idris will report that ?what needs to have type Integer
+  
+    #+BEGIN_SRC idris
+      factorial : Int -> Integer
+      factorial 0 = 1
+      factorial n = n * ?what      
+    #+END_SRC
+
+    This is not that useful for this simple example but for expressions 
+    with complex types it can be very handy
+
+* Editing 
+  
+  Emacs of course! Emacs has excellent integration with Idris 
+  giving you error reporting, inspections and a repl
+
+  - If you want you can use vi/vim or atom 

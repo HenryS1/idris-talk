@@ -1,0 +1,26 @@
+#+TITLE:  Verified state machines
+#+AUTHOR: Henry Steere
+
+* Behaviour can be encoded in types and checked at compile time!
+
+  - State machine transitions which have pre and post conditions can have 
+    those conditions encoded in dependent types
+
+  - The compiler can then check that sequences of state transitions which are not
+    allowed cannot be executed by using the type checker
+
+* Active area of research 
+
+  - Edwin Brady, Idris's creator is researching how to implement verified network protocols 
+    and resource and state aware systems by encoding state in types
+
+* Example 
+
+  Flight plan
+
+  - Airplanes must have fuel in order to fly 
+
+  - Fuel must be greater than or equal to the required fuel for a trip
+
+  - After two flights an airplane must be scheduled for a safety inspection before it can 
+    fly again

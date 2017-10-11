@@ -1,0 +1,57 @@
+#+TITLE:  Totality
+#+AUTHOR: Henry Steere
+
+* Totality 
+
+  - Totality is the guarantee that a function will complete its execution in finite time 
+    and produce a result for any input arguments
+
+  - Idris's built in theorem proving system can prove that your functions are total.
+    This guarantees that you don't have inifinite loops, failing case matches or other situations
+    where a function fails to handle it's input correctly.
+
+* The halting problem 
+
+  - There is no algorithm that can prove that a given function will terminate, so how
+    does Idris guarantee totality?
+
+  - Idris can prove that some functions are total and in that case you have a guarantee.
+    If Idris fails to prove that your function is total it will simply warn you that it may or may not be total.
+    In general Idris's theorem prover won't be able to prove your functions are total without 
+    some assistance.
+
+* Example - The towers of hanoi
+
+  - The towers of hanoi problem provides the solver with three pegs two of which are empty
+    and one of which has disks of increasing size stacked on it
+
+  - The solver has to move the disks from the first peg to the last using the spare pegs.
+    Discs are moved one at a time and a larger disk can never be placed on top of a smaller disk.
+
+    #+BEGIN_SRC sh
+        #         #      #
+       ###        #      #
+      #####       #      #
+    #+END_SRC
+
+  - The problem has a simple recursive solution. 
+
+    1. Move n - 1 disks onto the first available peg
+
+    2. Move the nth disk to the target peg
+
+    3. Move the n - 1 remaining disks from the spare peg to the target peg
+
+* Inductive recursion and Nats
+
+  Because Nat is defined as a recursive data type it is useful for proving that your recursion 
+  converges on a base case.
+
+  In contrast Integers don't have a recursive base case so even though n - 1 is in a sense smaller as a 
+  Int this doesn't imply being closer to a final recursive call
+
+  Nats are slow in the Idris interpreter because of their definition as ADTs. However, 
+  compiled Idris code will convert Nats into machine integers making them fast enough for general
+  purpose use.
+
+  
