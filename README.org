@@ -4,3 +4,5 @@
   This repository contains the slides (emacs org files) and example code 
   from the talk I gave on Idris at the Lambda Luminaries meetup at Jemstep
   on 9 October 2017.
+
+  Slides are in the org directory.
