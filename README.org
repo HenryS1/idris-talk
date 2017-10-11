@@ -2,5 +2,5 @@
 #+AUTHOR: Henry Steere
 
   This repository contains the slides (emacs org files) and example code 
-  from the talk I gave on Idris at Lambda Luminaries meetup group at Jemstep
+  from the talk I gave on Idris at Lambda Luminaries meetup at Jemstep
   on 9 October 2017.
