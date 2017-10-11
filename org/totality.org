@@ -1,7 +1,7 @@
 #+TITLE:  Totality
 #+AUTHOR: Henry Steere
 
-* Totality 
+* An important correctness check
 
   - Totality is the guarantee that a function will complete its execution in finite time 
     and produce a result for any input arguments
