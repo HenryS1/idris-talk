@@ -1,7 +1,7 @@
 #+TITLE:  Theorem proving
 #+AUTHOR: Henry Steere
 
-* Theorem proving
+* Integral to Idris
 
   Idris has built in theorem proving which can allow it to verify properties about
   your programs using dependent types

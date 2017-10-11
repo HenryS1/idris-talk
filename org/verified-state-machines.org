@@ -1,7 +1,7 @@
 #+TITLE:  Verified state machines
 #+AUTHOR: Henry Steere
 
-* Behaviour can be encoded in types and checked at compile time!
+* Behaviour can be encoded in types!
 
   - State machine transitions which have pre and post conditions can have 
     those conditions encoded in dependent types

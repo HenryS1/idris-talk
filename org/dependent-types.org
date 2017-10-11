@@ -1,7 +1,7 @@
 #+TITLE:  Dependent types
 #+AUTHOR: Henry Steere
 
-* Dependent types
+* What are they
 
   A dependent type is a type that is computed from a value
 
