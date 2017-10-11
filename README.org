@@ -1,0 +1,8 @@
+#+TITLE:  Dependent types in Idris
+#+AUTHOR: Henry Steere
+
+* Dependent types in Idris
+  
+  This repository contains the slides (emacs org files) and example code 
+  from the talk I gave on Idris at Lambda Luminaries meetup group at Jemstep
+  on 9 October 2017.
