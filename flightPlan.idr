@@ -16,8 +16,8 @@ data AirplaneCmd : (ty : Type) -> AirplaneState -> AirplaneState -> Type where
 JHBToNYC : Nat
 JHBToNYC = 45
   
-JHBDubai : Nat
-JHBDubai = 35
+NYCToDubai : Nat
+NYCToDubai = 35
 
 DubaiParis : Nat
 DubaiParis = 15
@@ -27,7 +27,6 @@ flightPlan = (_ ** _ ** do
   SafetyInspection 
   Refuel 80
   Fly JHBToNYC
-  Fly JHBDubai
-  SafetyInspection)
+  Fly NYCToDubai)
 
 
