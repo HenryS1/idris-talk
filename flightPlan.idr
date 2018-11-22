@@ -24,9 +24,11 @@ DubaiParis = 15
 
 flightPlan : { auto pInitFlights : LTE flights 2 } -> (eFl ** eFu ** AirplaneCmd () (0, 0) (eFl, eFu))
 flightPlan = (_ ** _ ** do 
-  SafetyInspection 
   Refuel 80
   Fly JHBToNYC
-  Fly NYCToDubai)
+  Fly NYCToDubai
+  SafetyInspection 
+  Refuel 15
+  Fly DubaiParis)
 
 
